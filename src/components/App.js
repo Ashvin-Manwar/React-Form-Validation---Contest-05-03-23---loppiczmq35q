@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 /**
  * @task :add validation to email, if email is not valid, if not valid email, dont allow to submit
@@ -13,6 +12,7 @@ function App() {
  const [error,setError]=useState(undefined);
  const [data,setData]=useSate({fname:undefined,lname:undefined})
  const change=()=>{
+  //console.log(emailRef.current.value);
   if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(emailRef.current.value)){
   setError(undefined);
    document.getElementById("submit").disabled=false;
@@ -28,9 +28,10 @@ function App() {
       <h1>How About Them Apples</h1>
       <form onSubmit={(e)=>{
         e.preventDefault();
-  setData({fname:fnameRef.current.value,
+          setData({
+          fname:fnameRef.current.value,
           lname:emailRef.current.value
-          })
+          });
  }}>
         <fieldset>
           <label>
