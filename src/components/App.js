@@ -11,7 +11,7 @@ function App() {
  const fnameRef=useRef();
  const emailRef=useRef();
  const [error,setError]=useState(undefined);
- const [data, setData]=useSate({fname:undefined,lname:undefined})
+ const [data,setData]=useSate({fname:undefined,lname:undefined})
  const change=()=>{
   if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(emailRef.current.value)){
   setError(undefined);
@@ -38,7 +38,7 @@ function App() {
             <input id='fname' name="name"  ref={fnameRef}/>
             <br></br>
             <p>Email</p>
-            <input id='lname' name="name" onChange={chnage}  ref={emailRef}/>
+            <input id='lname' name="name" onChange={change}  ref={emailRef}/>
             {error && <h2 style={{color: 'red'}}>{error}</h2>}
           </label>
         </fieldset>
@@ -56,6 +56,5 @@ function App() {
     </div>
   )
 }
-
 
 export default App;
