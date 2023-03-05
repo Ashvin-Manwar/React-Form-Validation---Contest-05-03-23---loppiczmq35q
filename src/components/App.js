@@ -6,7 +6,7 @@ function App() {
  const [error,setError]=useState(undefined);
  const [data,setData]=useSate({fname:undefined,lname:undefined})
  const change=()=>{
-  //console.log(emailRef.current.value);
+  console.log(emailRef.current.value);
   if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(emailRef.current.value)){
   setError(undefined);
    document.getElementById("submit").disabled=false;
@@ -33,8 +33,9 @@ function App() {
             <input id='fname' name="name"  ref={fnameRef}/>
             <br></br>
             <p>Email</p>
-            <input id='lname' name="name" onChange={change}  ref={emailRef}/>
+            <input id='lname' name="name" onChange={change} onBlur={handleBlur}  ref={emailRef}/>
             {error && <h2 style={{color: 'red'}}>{error}</h2>}
+            {emailError && <p>Email is invalid</p>}
           </label>
         </fieldset>
 
