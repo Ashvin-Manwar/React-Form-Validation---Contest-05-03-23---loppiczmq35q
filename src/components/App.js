@@ -33,7 +33,7 @@ function App() {
             <input id='fname' name="name"  ref={fnameRef}/>
             <br></br>
             <p>Email</p>
-            <input id='lname' name="name" onChange={change} onBlur={handleBlur}  ref={emailRef}/>
+            <input id='lname' name="name" onChange={change} ref={emailRef}/>
             {error && <h2 style={{color: 'red'}}>{error}</h2>}
             {emailError && <p>Email is invalid</p>}
           </label>
