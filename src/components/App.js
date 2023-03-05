@@ -8,22 +8,37 @@ import React, { useState, useRef } from 'react';
  */
 
 function App() {
+ const fnameRef=useRef();
+ const emailRef=useRef();
+ const [error,setError]=useState(undefined);
+ const [data, setData]=useSate({fname:undefined,lname:undefined})
+ const change=()=>{
+  if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(emailRef.current.value)){
+  setError(undefined);
+   document.getElementById("submit").disabled=false;
+  }
+  else{
+  setError("Email is invalid");
+    document.getElementById("submit").disabled=true;   
+  }
+ }
 
- /**
-  * code here
-  */
-
-  return(
+ return(
     <div className="App">
       <h1>How About Them Apples</h1>
-      <form>
+      <form onSubmit={(e)=>{
+        e.preventDefault();
+  setData({fname:fnameRef.current.value,
+          lname:emailRef.current.value
+          })
+ }}>
         <fieldset>
           <label>
             <p>First Name</p>
             <input id='fname' name="name"  ref={fnameRef}/>
             <br></br>
             <p>Email</p>
-            <input id='lname' name="name"   ref={emailRef}/>
+            <input id='lname' name="name" onChange={chnage}  ref={emailRef}/>
             {error && <h2 style={{color: 'red'}}>{error}</h2>}
           </label>
         </fieldset>
