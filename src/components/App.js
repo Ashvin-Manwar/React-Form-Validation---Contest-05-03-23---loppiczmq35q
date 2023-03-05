@@ -5,7 +5,6 @@ import React, { useState, useRef } from 'react';
  * 
  * 
  */
-
 function App() {
  const fnameRef=useRef();
  const emailRef=useRef();
