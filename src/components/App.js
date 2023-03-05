@@ -1,10 +1,5 @@
 import React, { useState, useRef } from 'react';
-/**
- * @task :add validation to email, if email is not valid, if not valid email, dont allow to submit
- * @error_message :  "Email is invalid"  if email is wrong. (must be same message) 
- * 
- * 
- */
+
 function App() {
  const fnameRef=useRef();
  const emailRef=useRef();
